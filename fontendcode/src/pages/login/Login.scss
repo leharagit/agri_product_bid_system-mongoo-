@@ -2,43 +2,72 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
 
   form {
-    width: 360px;
-    padding: 100px 0px;
+    width: 400px;
+    padding: 40px 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     gap: 20px;
 
     h1 {
-      color: gray;
+      color: #388e3c;
+      font-size: 24px;
+      font-weight: bold;
       margin-bottom: 20px;
+      text-align: center;
     }
 
     label {
-      color: gray;
-      font-size: 18px;
+      color: #4caf50;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
     }
 
     input,
     textarea {
-      padding: 20px;
-      border: 1px solid rgb(216, 214, 214);
+      padding: 14px;
+      border: 2px solid #c8e6c9;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #43a047;
+      outline: none;
+      box-shadow: 0 4px 10px rgba(67, 160, 71, 0.3);
     }
 
     button {
       border: none;
-      padding: 20px;
+      padding: 14px;
       color: white;
-      font-weight: 500;
-      font-size: 18px;
-      background-color: #1dbf73;
+      font-weight: 600;
+      font-size: 16px;
+      background: linear-gradient(135deg, #1dbf73, #388e3c);
+      border-radius: 8px;
       cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
     }
 
-    span{
-      color: red;
-      font-size: 12px;
+    button:hover {
+      background: linear-gradient(135deg, #388e3c, #2e7d32);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    span {
+      color: #d32f2f;
+      font-size: 14px;
+      text-align: center;
     }
   }
 }
