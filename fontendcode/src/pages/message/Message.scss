@@ -1,87 +1,116 @@
 .message {
-  display: flex;
-  justify-content: center;
   .container {
-    width: 1200px;
-    margin: 50px;
-    .breadcrumbs {
-      font-weight: 300;
-      font-size: 13px;
-      color: #555;
+    max-width: 800px;
+    margin: auto;
+    padding: 30px;
+    background: linear-gradient(135deg, #f5f5f5, #e1f5fe); /* Subtle gradient background */
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .container:hover {
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15); /* More prominent shadow on hover */
+  }
+
+  .breadcrumbs {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #00796b;
+    transition: color 0.3s ease;
+  }
+
+  .breadcrumbs:hover {
+    color: #004d40; /* Change color on hover */
+    text-decoration: underline;
+  }
+
+  .messages {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: auto;
+    max-height: 400px;
+    padding-right: 10px; /* Add padding to prevent text cutoff */
+  }
+
+  .item {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background-color: #ffffff;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+    position: relative;
+
+    &:hover {
+      transform: scale(1.02);
+      background-color: #f1f8e9; /* Light green background on hover */
     }
-    .messages {
-      margin: 30px 0px;
-      padding: 50px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      height: 500px;
-      overflow: scroll;
 
-      .item {
-        display: flex;
-        gap: 20px;
-        max-width: 600px;
-        font-size: 18px;
+    &.unread {
+      background-color: #e8f5e9;
+      border-color: #388e3c;
+      box-shadow: 0 4px 10px rgba(56, 142, 60, 0.3);
+    }
 
-        &.owner {
-          flex-direction: row-reverse;
-          align-self: flex-end;
+    p {
+      margin: 0;
+      font-size: 16px;
+      color: #333;
+      font-weight: 600;
+    }
 
-          p {
-            max-width: 500px;
-            border-radius: 20px 0px 20px 20px;
-            background-color: royalblue;
-            color: white;
-          }
-        }
+    .timestamp {
+      display: block;
+      margin-top: 5px;
+      font-size: 14px;
+      color: #888;
+      font-style: italic;
+    }
+  }
 
-        img {
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          object-fit: cover;
-        }
+  .write {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-top: 15px;
 
-        p {
-          max-width: 500px;
-          padding: 20px;
-          background-color: rgb(244, 241, 241);
-          border-radius: 0px 20px 20px 20px;
-          color: gray;
-          font-weight: 300;
-        }
+    textarea {
+      width: 100%;
+      height: 100px;
+      padding: 12px;
+      font-size: 16px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      outline: none;
+      transition: border-color 0.3s ease;
+
+      &:focus {
+        border-color: #1dbf73;
+        box-shadow: 0 0 8px rgba(29, 191, 115, 0.5); /* Subtle glow on focus */
       }
     }
 
-    hr {
-      height: 0;
-      border: 0.5px solid rgb(232, 230, 230);
-      margin-bottom: 20px;
-    }
+    button {
+      align-self: flex-end;
+      padding: 12px 25px;
+      background-color: #388e3c;
+      color: white;
+      font-size: 18px;
+      font-weight: 700;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
 
-    .write {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      textarea {
-        width: 80%;
-        height: 100px;
-        padding: 10px;
-        border: 1px solid lightgray;
-        border-radius: 10px;
+      &:hover {
+        background-color: #2e7d32;
+        transform: scale(1.05);
       }
 
-      button{
-        background-color: #1dbf73;
-        padding: 20px;
-        color: white;
-        font-weight: 500;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        width: 100px;
+      &:active {
+        background-color: #1b5e20; /* Darker shade when clicked */
       }
     }
   }

@@ -1,107 +1,118 @@
 .register {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  padding: 30px;
+  border: none;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #ffffff, #e8f5e9);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  font-family: 'Roboto', sans-serif;
+  animation: fadeIn 0.6s ease-out;
+}
 
-  form {
-    width: 960px;
-    padding: 100px 0px;
-    display: flex;
-    gap: 120px;
-
-    h1 {
-      color: gray;
-      margin-bottom: 20px;
-    }
-
-    .left,
-    .right {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      justify-content: space-between;
-
-      label {
-        color: gray;
-        font-size: 18px;
-      }
-
-      input,
-      textarea {
-        padding: 20px;
-        border: 1px solid rgb(216, 214, 214);
-      }
-
-      button {
-        border: none;
-        padding: 20px;
-        color: white;
-        font-weight: 500;
-        font-size: 18px;
-        background-color: #1dbf73;
-        cursor: pointer;
-      }
-
-      .toggle {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-
-        .switch {
-          position: relative;
-          display: inline-block;
-          width: 50px;
-          height: 24px;
-        }
-
-        /* Hide default HTML checkbox */
-        .switch input {
-          opacity: 0;
-          width: 0;
-          height: 0;
-        }
-
-        .slider {
-          position: absolute;
-          cursor: pointer;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background-color: #ccc;
-          -webkit-transition: 0.4s;
-          transition: 0.4s;
-          border-radius: 24px;
-        }
-
-        .slider:before {
-          position: absolute;
-          content: "";
-          height: 16px;
-          width: 16px;
-          left: 4px;
-          bottom: 4px;
-          background-color: white;
-          -webkit-transition: 0.4s;
-          transition: 0.4s;
-          border-radius: 50%;
-        }
-
-        input:checked + .slider {
-          background-color: #2196f3;
-        }
-
-        input:focus + .slider {
-          box-shadow: 0 0 1px #2196f3;
-        }
-
-        input:checked + .slider:before {
-          -webkit-transform: translateX(26px);
-          -ms-transform: translateX(26px);
-          transform: translateX(26px);
-        }
-      }
-    }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.register h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #388e3c;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.register label {
+  display: block;
+  margin: 12px 0 6px;
+  font-size: 15px;
+  color: #4caf50;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.register input,
+.register select {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 20px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  background: #f1f8e9;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+}
+
+.register input:hover,
+.register select:hover {
+  border-color: #81c784;
+}
+
+.register input:focus,
+.register select:focus {
+  border-color: #4caf50;
+  outline: none;
+  background: #e8f5e9;
+  box-shadow: 0 4px 10px rgba(76, 175, 80, 0.4);
+}
+
+.register button {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #66bb6a, #43a047);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.register button:hover {
+  background: linear-gradient(135deg, #43a047, #2e7d32);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(67, 160, 71, 0.5);
+}
+
+.register .error {
+  color: #d32f2f;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.register input::placeholder {
+  color: #a5d6a7;
+  font-size: 14px;
+}
+
+.register .form-footer {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 15px;
+  color: #81c784;
+  font-style: italic;
+  letter-spacing: 0.5px;
+}
+
+.register .form-footer a {
+  color: #388e3c;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.register .form-footer a:hover {
+  color: #2e7d32;
 }

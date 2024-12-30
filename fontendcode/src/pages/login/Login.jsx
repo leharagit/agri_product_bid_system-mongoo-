@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import "./Login.scss";
-import newRequest from "../../utils/newRequest";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "./Login.scss"; // Ensure this file has styles for the login page.
 
 function Login() {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState(""); // Updated to match the backend field name.
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
 
@@ -12,39 +12,47 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(null); // Clear previous errors.
     try {
-      const res = await newRequest.post("/auth/login", { username, password });
-      localStorage.setItem("currentUser", JSON.stringify(res.data));
-      navigate("/")
+      const response = await axios.post("http://localhost:8080/users/login", {
+        email, // Sending email as expected by your backend.
+        password,
+      });
+      // Save user information in localStorage or sessionStorage.
+      localStorage.setItem("currentUser", JSON.stringify(response.data));
+      navigate("/"); // Redirect to the home page after successful login.
     } catch (err) {
-      setError(err.response.data);
+      setError(err.response?.data || "Invalid email or password");
     }
   };
 
   return (
     <div className="login">
       <form onSubmit={handleSubmit}>
-        <h1>Sign in</h1>
-        <label htmlFor="">Username</label>
+        <h1>Login</h1>
+        <label>Email</label>
         <input
-          name="username"
-          type="text"
-          placeholder="johndoe"
-          onChange={(e) => setUsername(e.target.value)}
+          type="email"
+          placeholder="Enter your email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
         />
-
-        <label htmlFor="">Password</label>
+        <label>Password</label>
         <input
-          name="password"
           type="password"
+          placeholder="Enter your password"
+          value={password}
           onChange={(e) => setPassword(e.target.value)}
+          required
         />
         <button type="submit">Login</button>
-        {error && error}
+        {error && <p className="error">{error}</p>}
       </form>
     </div>
   );
 }
 
 export default Login;
+
 

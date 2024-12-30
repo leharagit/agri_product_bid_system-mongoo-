@@ -1,67 +1,72 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import newRequest from "../../utils/newRequest";
+import axios from "axios";
 import "./Message.scss";
 
 const Message = () => {
-  const { id } = useParams();
+  const { userId } = useParams(); // Assuming `userId` is passed as a parameter
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
   const queryClient = useQueryClient();
 
+  // Fetch notifications for the specific user
   const { isLoading, error, data } = useQuery({
-    queryKey: ["messages"],
+    queryKey: ["notifications", userId],
     queryFn: () =>
-      newRequest.get(`/messages/${id}`).then((res) => {
-        return res.data;
-      }),
+      axios.get(`/api/notifications/user/${userId}`).then((res) => res.data),
   });
 
+  // Mutation to create a new notification
   const mutation = useMutation({
-    mutationFn: (message) => {
-      return newRequest.post(`/messages`, message);
+    mutationFn: (notification) => {
+      return axios.post(`/api/notifications`, notification);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries(["messages"]);
+      queryClient.invalidateQueries(["notifications", userId]);
     },
   });
 
+  // Handle form submission to send a new notification
   const handleSubmit = (e) => {
     e.preventDefault();
     mutation.mutate({
-      conversationId: id,
-      desc: e.target[0].value,
+      userId: userId, // Recipient's user ID
+      content: e.target[0].value,
+      timestamp: new Date().toISOString(),
+      status: "Unread",
     });
-    e.target[0].value = "";
+    e.target[0].value = ""; // Clear the textarea after submission
   };
 
   return (
     <div className="message">
       <div className="container">
         <span className="breadcrumbs">
-          <Link to="/messages">Messages</Link> > John Doe >
+          <Link to="/notifications">Notifications</Link>  User Notifications 
         </span>
         {isLoading ? (
-          "loading"
+          "Loading notifications..."
         ) : error ? (
-          "error"
+          "Error fetching notifications."
         ) : (
           <div className="messages">
-            {data.map((m) => (
-              <div className={m.userId === currentUser._id ? "owner item" : "item"} key={m._id}>
-                <img
-                  src="https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                  alt=""
-                />
-                <p>{m.desc}</p>
+            {data.map((notification) => (
+              <div
+                className={`item ${notification.status === "Unread" ? "unread" : ""}`}
+                key={notification.id}
+              >
+                <p>{notification.content}</p>
+                <span className="timestamp">
+                  {new Date(notification.timestamp).toLocaleString()}
+                </span>
               </div>
             ))}
           </div>
         )}
         <hr />
         <form className="write" onSubmit={handleSubmit}>
-          <textarea type="text" placeholder="write a message" />
+          <textarea type="text" placeholder="Write a notification..." required />
           <button type="submit">Send</button>
         </form>
       </div>
@@ -70,3 +75,4 @@ const Message = () => {
 };
 
 export default Message;
+

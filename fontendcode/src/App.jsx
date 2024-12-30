@@ -9,10 +9,12 @@ import Gig from "./pages/gig/Gig";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import Add from "./pages/add/Add";
+
 import Orders from "./pages/orders/Orders";
 import Messages from "./pages/messages/Messages";
 import Message from "./pages/message/Message";
 import MyGigs from "./pages/myGigs/MyGigs";
+
 import {
   QueryClient,
   QueryClientProvider,
@@ -60,7 +62,7 @@ function App() {
           element: <Messages />,
         },
         {
-          path: "/message/:id",
+          path: "/message",
           element: <Message />,
         },
         {
