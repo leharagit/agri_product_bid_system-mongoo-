@@ -26,28 +26,28 @@ function Home() {
               The Best for Every Budget
             </div>
             <p>
-            Provide flexible pricing options for bids and services to accommodate small-scale and large-scale agricultural stakeholders.
+              Provide flexible pricing options for bids and services to accommodate small-scale and large-scale agricultural stakeholders.
             </p>
             <div className="title">
               <img src="./img/check.png" alt="" />
               Quality Transactions Done Quickly
             </div>
             <p>
-            Enable users to find verified buyers and sellers in minutes with an easy-to-use interface.
+              Enable users to find verified buyers and sellers in minutes with an easy-to-use interface.
             </p>
             <div className="title">
               <img src="./img/check.png" alt="" />
               Protected Payments, Every Time
             </div>
             <p>
-            Implement escrow payment systems where funds are only released once both parties are satisfied with the transaction.
+              Implement escrow payment systems where funds are only released once both parties are satisfied with the transaction.
             </p>
             <div className="title">
               <img src="./img/check.png" alt="" />
               24/7 support
             </div>
             <p>
-            Ensure farmers, sellers, and buyers can access help through live chat, email, or phone support at any time.
+              Ensure farmers, sellers, and buyers can access help through live chat, email, or phone support at any time.
             </p>
           </div>
           <div className="item">
@@ -60,44 +60,61 @@ function Home() {
         <div className="container">
           <div className="item">
             <h1>
-              fiverr <i>business</i>
+              Key<i> Features</i> For<i> Farmers </i>
             </h1>
-            <h1>
-              A business solution designed for <i>teams</i>
-            </h1>
-            <p>
-              Upgrade to a curated experience packed with tools and benefits,
-              dedicated to businesses
-            </p>
             <div className="title">
               <img src="./img/check.png" alt="" />
-              Connect to freelancers with proven business experience
+              Easy product listing (e.g., vagitable, Fuits, Coconuts).
             </div>
-
             <div className="title">
               <img src="./img/check.png" alt="" />
-              Get matched with the perfect talent by a customer success manager
+              Real-time bidding updates on their dashboard
             </div>
-
             <div className="title">
               <img src="./img/check.png" alt="" />
-              Manage teamwork and boost productivity with one powerful workspace
+              Secure payments and trusted buyers.
             </div>
-            <button>Explore Fiverr Business</button>
+            <button>List Your Product</button>
           </div>
           <div className="item">
             <img
-              src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_870,dpr_2.0/v1/attachments/generic_asset/asset/d9c17ceebda44764b591a8074a898e63-1599597624768/business-desktop-870-x2.png"
+              src="./img/veg3.jpg"
               alt=""
             />
           </div>
         </div>
       </div>
-      <Slide slidesToShow={4} arrowsScroll={4}>
-        {projects.map((card) => (
-          <ProjectCard key={card.id} card={card} />
-        ))}
-      </Slide>
+
+      <div className="features dark">
+        <div className="container">
+          <div className="item">
+            <h1>
+              Key<i> Features</i> For<i> Buyers </i>
+            </h1>
+            <div className="title">
+              <img src="./img/check.png" alt="" />
+              Access to fresh produce and high-quality items directly from farmers
+            </div>
+            <div className="title">
+              <img src="./img/check.png" alt="" />
+              Transparent bidding process, ensuring fair prices.
+            </div>
+            <div className="title">
+              <img src="./img/check.png" alt="" />
+              Flexible delivery or pickup options tailored to your convenience
+            </div>
+            <button>Buy Your Product</button>
+          </div>
+          <div className="item">
+            <img
+              src="./img/buy1.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+
+    
     </div>
   );
 }

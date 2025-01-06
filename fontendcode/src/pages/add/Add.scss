@@ -1,90 +1,80 @@
 .add {
   display: flex;
   justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: #f9f9f9;
 
   .container {
-    width: 1400px;
-    padding: 50px 0px;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
 
     h1 {
-      width: max-content;
-      margin-bottom: 30px;
-      color: gray;
-      font-weight: 300;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      color: #333;
     }
 
-    .sections {
+    form {
       display: flex;
-      justify-content: space-between;
-      gap: 100px;
+      flex-direction: column;
+      gap: 1rem;
 
-      label {
-        color: gray;
-        font-size: 18px;
-      }
-
-      .info,
-      .details {
-        flex: 1;
+      .form-group {
         display: flex;
         flex-direction: column;
-        gap: 10px;
-        justify-content: space-between;
+        gap: 0.5rem;
+
+        label {
+          font-weight: bold;
+          color: #555;
+        }
 
         input,
         select,
         textarea {
-          padding: 20px;
-        }
+          padding: 0.8rem;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          font-size: 1rem;
+          color: #333;
+          background-color: #fff;
 
-        .images{
-          display: flex;
-          align-items: center;
-          gap: 20px;
-
-          .imagesInputs{
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+          &:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
           }
         }
 
-        button {
-          border: none;
-          padding: 20px;
-          color: white;
-          font-weight: 500;
-          font-size: 18px;
-          background-color: #1dbf73;
-          cursor: pointer;
+        textarea {
+          resize: vertical;
+          min-height: 100px;
         }
+      }
 
-        .add{
-          display: flex;
-          justify-content: space-between;
+      button {
+        padding: 0.8rem;
+        border: none;
+        border-radius: 4px;
+        background-color: #0f4327;
+        color: #fff;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        text-align: center;
+        transition: background-color 0.3s;
 
-          input{
-            width: 80%;
-          }
-        }
-
-        .addedFeatures{
-          display: flex;
-          gap: 20px;
-
-          button{
-            height: 30px;
-            font-size: 12px;
-            font-weight: 400;
-            background: transparent;
-            color: red;
-            border: 1px solid red;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-          }
+        &:hover {
+          background-color: #1d9023;
         }
       }
     }
   }
 }
+

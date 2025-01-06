@@ -70,7 +70,7 @@ function App() {
           element: <Add />,
         },
         {
-          path: "/gig/:id",
+          path: "/gig",
           element: <Gig />,
         },
         {
