@@ -14,13 +14,15 @@ const Message = () => {
   const { isLoading, error, data } = useQuery({
     queryKey: ["notifications", userId],
     queryFn: () =>
-      axios.get(`/api/notifications/user/${userId}`).then((res) => res.data),
+      axios
+        .get(`http://localhost:8080/api/notifications/user/${userId}`) // Update the URL to match your Spring Boot API
+        .then((res) => res.data),
   });
 
   // Mutation to create a new notification
   const mutation = useMutation({
     mutationFn: (notification) => {
-      return axios.post(`/api/notifications`, notification);
+      return axios.post("http://localhost:8080/api/notifications", notification); // Update the URL to match your Spring Boot API
     },
     onSuccess: () => {
       queryClient.invalidateQueries(["notifications", userId]);
@@ -75,4 +77,5 @@ const Message = () => {
 };
 
 export default Message;
+
 

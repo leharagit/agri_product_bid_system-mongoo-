@@ -9,7 +9,7 @@ export const cards = [
     id: 2,
     title: "Vegitable",
     desc: "Add your Bid",
-    img: "/img/veg.jpg",
+    img: "/img/veg4.jpg",
   },
   {
     id: 3,
