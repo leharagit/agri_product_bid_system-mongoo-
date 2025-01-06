@@ -1,0 +1,129 @@
+/* General Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+.container {
+  background-color: #006666;
+  color: white;
+  min-height: 100vh;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00cc88;
+}
+
+.nav {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-link {
+  font-size: 1rem;
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+}
+
+.button {
+  background: none;
+  border: 1px solid white;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #00cc88;
+  color: #fff;
+}
+
+/* Main Section */
+.main {
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.title {
+  font-size: 3rem;
+  line-height: 1.2;
+}
+
+.highlight {
+  color: #00cc88;
+}
+
+/* Search Bar */
+.search-bar {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.search-input {
+  padding: 0.75rem;
+  width: 300px;
+  border: none;
+  outline: none;
+  border-radius: 5px 0 0 5px;
+}
+
+.search-button {
+  background-color: #00cc88;
+  border: none;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Popular Tags */
+.popular {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.popular p {
+  margin: 0;
+}
+
+.tag {
+  background-color: white;
+  color: #006666;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.9rem;
+}
+
+/* Fruits Image */
+.fruits-image {
+  margin-top: 2rem;
+}
+
+.fruits-image img {
+  width: 70%;
+  max-width: 500px;
+}
