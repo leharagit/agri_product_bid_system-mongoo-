@@ -1,1 +1,1 @@
-# project for auction system
+Auction system website
